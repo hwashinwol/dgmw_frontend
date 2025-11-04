@@ -1,0 +1,192 @@
+/* src/styles.css 또는 index.css */
+
+/* --- Layout.js (Header) --- */
+.main-header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 16px 32px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.header-content {
+    max-width: 1000px; /* 페이지 컨텐츠 최대 너비와 맞추세요 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.header-content nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-link {
+    font-size: 16px;
+    color: #555;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+.header-link:hover {
+    color: #000;
+}
+
+.header-btn {
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.header-btn.primary {
+    background-color: #0056b3;
+    color: #fff;
+}
+.header-btn.primary:hover {
+    background-color: #004494;
+}
+
+/* --- LoginModal.js (Screen 5) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 28px;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.google-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.google-login-btn:hover {
+    background-color: #f9f9f9;
+}
+.google-login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+
+/* --- MyPage.css (Screen 7-10) --- */
+.mypage-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+}
+.mypage-container h2 {
+    text-align: center;
+}
+.mypage-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 32px;
+}
+.mypage-section {
+    margin-bottom: 32px;
+}
+.mypage-section h3 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+.info-box {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.info-row:last-child {
+    border-bottom: none;
+}
+.info-row span:first-child {
+    font-weight: bold;
+    color: #555;
+}
+.plan-badge {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+}
+.plan-badge.free { background-color: #555; }
+.plan-badge.paid { background-color: #0056b3; }
+.plan-badge.overdue { background-color: #d93025; }
+
+/* Screen 10 */
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.action-button {
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+}
+.logout-btn { color: #333; }
+.delete-btn { color: #d93025; border-color: #d93025; }
+.delete-btn:hover { background-color: #fcf2f2; }

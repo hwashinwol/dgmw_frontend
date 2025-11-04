@@ -1,0 +1,148 @@
+/* src/pages/TranslatePage.css */
+
+.translate-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+}
+
+.translate-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.translate-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 32px;
+}
+
+/* 1. Text / File 토글 */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.toggle-buttons button {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.2s;
+}
+
+.toggle-buttons button.active {
+    background-color: #ffffff;
+    color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 2. 입력 영역 */
+.input-area {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.input-area textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.file-dropzone {
+    width: 100%;
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.file-dropzone p {
+    margin: 8px 0;
+}
+
+/* 3. 전문 분야 선택 */
+.domain-selection {
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.domain-selection h3 {
+    margin-top: 0;
+}
+
+.domain-selection .optional {
+    font-weight: normal;
+    font-size: 14px;
+    color: #888;
+}
+
+.domain-notice {
+    font-size: 13px;
+    text-align: left !important;
+    color: #888;
+    margin-bottom: 16px !important;
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+/* 4. 제출 버튼 */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #004494;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 5. 에러 메시지 */
+.error-message {
+    color: #d93025;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: bold;
+}
