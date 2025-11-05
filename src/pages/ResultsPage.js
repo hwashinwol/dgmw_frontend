@@ -1,7 +1,6 @@
-// src/pages/ResultsPage.js
-
 import React from 'react';
-import { useLocation, useNavigate, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; 
 import './ResultsPage.css';
 
 /**
@@ -73,6 +72,7 @@ const ResultCard = ({ result, userStatus }) => {
 function ResultsPage() {
     const location = useLocation();
     const navigate = useNavigate();
+    const { openPlanModal } = useAuth();
 
     // TranslatePage에서 navigate로 넘겨준 state를 받습니다.
     const { state } = location;
@@ -127,11 +127,9 @@ function ResultsPage() {
 
             {/* 5. (조건부) 무료 사용자용 업셀 버튼 */}
             {userStatus === 'free' && (
-                <Link to="/mypage" className="upsell-button-link">
-                    <button className="upsell-button">
-                        유료 플랜 살펴보기
-                    </button>
-                </Link>
+                <button onClick={ handleUpsellClick } className='upsell-button'>
+                    유료 플랜 살펴보기
+                </button>
             )}
         </div>
     );
