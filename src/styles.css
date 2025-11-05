@@ -315,3 +315,37 @@
 .plan-column li span {
     margin-right: 8px;
 }
+
+/* --- ⭐️ PlanModal.css (Screen 6) --- */
+
+.modal-content.plan-modal {
+    max-width: 700px; /* 로그인 모달보다 넓게 */
+    text-align: left;
+}
+
+.modal-content.plan-modal h3,
+.modal-content.plan-modal p {
+    text-align: center;
+}
+
+.modal-plans {
+    margin: 24px 0;
+    gap: 16px; /* 모달에서는 갭을 약간 줄임 */
+    /* MyPage.css의 .plan-comparison-box 스타일을 상속받아 사용합니다 */
+}
+
+.plan-column .price {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0056b3;
+    margin-bottom: 16px;
+}
+
+/* 모달 내부의 업그레이드 버튼 */
+.plan-modal .upgrade-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 17px;
+    /* .action-button, .primary-btn 스타일을 상속받아 사용합니다 */
+}
