@@ -1,9 +1,8 @@
-// src/components/Layout.js
-
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Layout.css'; // ⭐️ 공통 스타일
+import PlanModal from './PlanModal';
 
 // ⭐️ Google 로고 SVG (Base64 인코딩)
 const GoogleLogo = () => (
@@ -14,7 +13,6 @@ const GoogleLogo = () => (
         <path d="M9 3.57955C10.3214 3.57955 11.5077 4.02455 12.4405 4.92545L15.0218 2.34409C13.4673 0.891818 11.43 0 9 0C5.79727 0 3.00682 1.72045 1.51773 4.56682L4.52182 6.89318C5.22091 4.98273 6.96273 3.57955 9 3.57955Z" fill="#EA4335"/>
     </svg>
 );
-
 
 /**
  * ⭐️ 로그인 모달 (Screen 5)
@@ -48,8 +46,17 @@ const LoginModal = ({ show, onClose }) => {
  * ⭐️ 메인 레이아웃 (헤더 포함)
  */
 function Layout() {
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, openPlanModal } = useAuth();
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+    // 로그인 모달 열기
+    const handleOpenLoginModal = () =>{
+        setIsLoginModalOpen(true);
+    };
+
+    // useAuth에 로그인 모달 여는 함수 등록
+    const auth = useAuth();
+    auth.openLoginModal = handleOpenLoginModal;
 
     return (
         <>
@@ -60,7 +67,9 @@ function Layout() {
                         {isLoggedIn ? (
                             <>
                                 <Link to="/mypage" className="header-link">내 정보</Link>
-                                <Link to="/plans" className="header-btn primary">구독 플랜</Link>
+                                <button onClick={openPlanModal} className='header-btn primary'>
+                                    구독 플랜
+                                </button>
                             </>
                         ) : (
                             <>
@@ -70,7 +79,9 @@ function Layout() {
                                 >
                                     로그인
                                 </button>
-                                <Link to="/plans" className="header-btn primary">구독 플랜</Link>
+                                <button onClick={openPlanModal} className='header-btn primary'>
+                                    구독 플랜
+                                </button>
                             </>
                         )}
                     </nav>
@@ -82,6 +93,9 @@ function Layout() {
                 show={isLoginModalOpen} 
                 onClose={() => setIsLoginModalOpen(false)} 
             />
+
+            {/* 플랜 모달} */}
+            <PlanModal />
 
             {/* ⭐️ 페이지 본문 (TranslatePage, ResultsPage 등이 여기에 렌더링됨) */}
             <main>

@@ -1,5 +1,3 @@
-// src/context/AuthContext.js
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // ⭐️ 백엔드 API의 기본 URL
@@ -12,6 +10,7 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [isLoading, setIsLoading] = useState(false);
+    const [isPlanModalOpen, setIsPlanModalOpen] = useState(false);
 
     // token이 변경될 때 localStorage에도 저장/삭제
     useEffect(() => {
