@@ -145,7 +145,7 @@ function MyPage() {
                             </div>
                             <div className="info-row">
                                 <span>오늘 사용 횟수</span>
-                                <span>(API 미구현) / 5회</span>
+                                <span>(API 미구현) / 5회</span> 
                             </div>
                             <Link to="/plans" className="action-button primary-btn upgrade-btn">
                                 프리미엄 플랜으로 업그레이드

@@ -148,6 +148,7 @@
     background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
+    /* ⭐️ (수정) 버튼이 info-box 안에 있으므로, padding을 버튼 영역과 분리 */
 }
 .info-row {
     display: flex;
@@ -190,3 +191,127 @@
 .logout-btn { color: #333; }
 .delete-btn { color: #d93025; border-color: #d93025; }
 .delete-btn:hover { background-color: #fcf2f2; }
+
+/* --- ⭐️ MyPage.js (11-05 추가) --- */
+
+/* 1. 상태별 구독 정보 박스 (info-box 내부의 버튼) */
+.info-box .action-button {
+    width: calc(100% - 32px); /* padding 16px * 2 */
+    margin: 16px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.info-box .action-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.info-box .action-button.primary-btn {
+    background-color: #0056b3;
+    color: #fff;
+}
+.info-box .action-button.primary-btn:hover:not(:disabled) {
+    background-color: #004494;
+}
+.info-box .action-button.upgrade-btn {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+.info-box .button-group {
+    display: flex;
+    gap: 12px;
+    margin: 16px;
+}
+.info-box .button-group .action-button {
+    flex: 1;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+.info-box .button-group .action-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+.info-box .button-group .action-button.primary-btn {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* 2. 결제 실패 경고 (Screen 8) */
+.payment-failed-alert {
+    background-color: #fdf2f2;
+    border: 1px solid #d93025;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+.payment-failed-alert h4 {
+    color: #d93025;
+    margin: 0 0 8px 0;
+}
+.payment-failed-alert p {
+    color: #333;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* 3. 플랜 혜택 비교 (공통) */
+.plan-comparison-box {
+    display: flex;
+    gap: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.plan-column {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+.plan-column.premium {
+    background-color: #f0f4ff;
+    border-left: 1px solid #e0e0e0;
+}
+.plan-column.premium.current {
+    border: 2px solid #0056b3;
+    border-radius: 8px; /* 부모 radius와 맞춤 */
+}
+.current-plan-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: #0056b3;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+.plan-column h4 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #333;
+}
+.plan-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.plan-column li {
+    font-size: 15px;
+    color: #333;
+}
+.plan-column li span {
+    margin-right: 8px;
+}
