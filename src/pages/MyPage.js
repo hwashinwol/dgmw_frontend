@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// Link 추가
-import { Link } from 'react-router-dom';
+// Link 대신 useAuth 사용
 import { useAuth } from '../context/AuthContext';
 import './MyPage.css'; // ⭐️ 마이페이지 전용 스타일
 
 function MyPage() {
-    const { token, handleLogout, API_BASE_URL } = useAuth();
+    const { token, handleLogout, API_BASE_URL, openPlanModal } = useAuth();
     const [userData, setUserData] = useState(null); // (free, paid, overdue 등)
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -147,9 +146,9 @@ function MyPage() {
                                 <span>오늘 사용 횟수</span>
                                 <span>(API 미구현) / 5회</span> 
                             </div>
-                            <Link to="/plans" className="action-button primary-btn upgrade-btn">
+                            <button onClick={openPlanModal} className='action-button primary-btn upgrade-btn'>
                                 프리미엄 플랜으로 업그레이드
-                            </Link>
+                            </button>
                         </div>
                     </section>
                 );
